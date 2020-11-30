@@ -1,0 +1,7 @@
+Nyalakan XAMPP nya dahulu
+Import sql nya (pesan_makanan.sql) ke database
+Pastikan connector.jar sama pesan_makanan.sql ada dalam satu file bersama script codingan
+
+untuk menjalankan:
+compile di cmd dengan cara  "javac -classpath connector.jar SewaKendaraan.java"
+run di cmd dengan cara "java -classpath connector.jar SewaKendaraan.java"
