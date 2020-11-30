@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
  *
- * @author acer
+ * @author Kelompok 6
  */
 public class PesanMakanan {
     private static final String URL = "jdbc:mysql://localhost:3306/pesan_makanan";
