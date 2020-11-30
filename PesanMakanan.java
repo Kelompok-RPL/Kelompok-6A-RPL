@@ -14,6 +14,11 @@ import java.util.logging.Logger;
 /**
  *
  * @author Kelompok 6
+ Nama anggota: 1. Anisa
+               2. Bob Raozal
+               3. Fazreen Nurul Hikam Pambudi
+               4. M.Malvino Rozi
+               5. Shofian ramadhan
  */
 public class PesanMakanan {
     private static final String URL = "jdbc:mysql://localhost:3306/pesan_makanan";
