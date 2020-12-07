@@ -5,8 +5,8 @@
  */
 import java.util.*;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.DatabaseMetaData;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,11 +15,11 @@ import java.util.logging.Logger;
 /**
  *
  * @author Kelompok 6
- Nama anggota: 1. Anisa
-               2. Bob Raozal
-               3. Fazreen Nurul Hikam Pambudi
-               4. M.Malvino Rozi
-               5. Shofian ramadhan
+ * - Fazreen Nurul Hikam Pambudi
+ * - Bob Raozal
+ * - Anisa
+ * - M. Malvino Rozi
+ * - Shofian Ramadhan
  */
 public class PesanMakanan {
     private static final String URL = "jdbc:mysql://localhost:3306/pesan_makanan";
@@ -31,7 +31,7 @@ public class PesanMakanan {
     public static void main(String[] args) {
     
     Scanner input = new Scanner(System.in);
-    Scanner pilihan = new Scanner(System.in);
+        Scanner pilihan = new Scanner(System.in);
     ArrayList<String> pesanan = new ArrayList<String>();
     ArrayList<Integer> harga_pesanan = new ArrayList<Integer>();
     Random r = new Random();
@@ -69,10 +69,10 @@ public class PesanMakanan {
         System.out.println("1. Lakukan Pemesanan");
         System.out.println("2. Lihat Riwayat Pemesanan");
         System.out.print("\nPilih :");
-        int pilih = pilihan.nextInt();
+        int pilih1 = pilihan.nextInt();
         
         
-        if(pilih == 1){
+        if(pilih1 == 1){
             
             String yon; //pilihan yes or no
             int item;   //pilihan menu
@@ -81,9 +81,9 @@ public class PesanMakanan {
             boolean status = true;
             String kodeTransaksi;
             int nilaiacak = 1 + r.nextInt(10000);
-
+            String metode = "";
             do{
-                    System.out.print("Lakukan Pemesnaan Makanan (Y/N) ? ");
+                    System.out.print("Lanjutkan Pemesnaan Makanan (Y/N) ? ");
                     yon = input.nextLine();
                     if(yon.equalsIgnoreCase("Y") || yon.equalsIgnoreCase("Yes")){
 
@@ -153,6 +153,40 @@ public class PesanMakanan {
                                     System.out.println("\nPilih metode pembayaran anda");
                                     System.out.println("1. Debit");
                                     System.out.println("2. Tunai");
+                                    boolean yon4 = true;
+                                    
+                                    do{
+                                        System.out.println("\nPilih :");
+                                        int pilih2 = pilihan.nextInt();
+                                        if (pilih2 == 1){
+                                            metode = "Debit";
+                                            yon4 = false;
+                                        }else if (pilih2 == 2){
+                                            metode = "Tunai";
+                                            yon4 = false;
+                                        }else{
+                                            System.out.println("Maaf masukkan tidak sesuai");
+                                        }
+                                    }while(yon4);
+                                    
+                                    System.out.println("\nBerikut Kupon Pemesanan Anda");
+                                    System.out.println("Tunjukkan Kupon pada kurir sebagai bukti pemesanan\n");
+                                    
+                                    System.out.println("===========================================");
+                                    System.out.println("Terima Kasih telah melakukan Pemesanan :D");
+                                    System.out.println("============================================");
+                                    System.out.println("Kode Transaksi      : "+ kodeTransaksi);
+                                    System.out.println("Nama Pemesan        : "+ nama);
+                                    System.out.println("No. Telp            : "+ noHP);
+                                    System.out.println("Alamat              : "+ alamat);
+                                    System.out.println("Berikut Daftar Pesanan Anda");
+                                    System.out.println("Item           |Harga");
+                                    for(int i = 0; i < pesanan.size(); i++){
+                                        System.out.println(pesanan.get(i)+"\t"+harga_pesanan.get(i));
+                                        totalharga = totalharga + harga_pesanan.get(i);
+                                    }
+                                    System.out.println("Total Harga         : "+ totalharga);
+                                    System.out.println("Metode Pembayaran   : "+ metode);
 
                             }else{
                                     System.out.println("\nPesanan Anda Akan dibatalakan");
